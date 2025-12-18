@@ -1,0 +1,59 @@
+{{define "results"}}
+<a class="back" href="/">← Retour</a>
+
+<div class="hero" style="padding-bottom:8px">
+  <h1 style="margin-bottom:6px">Résultats</h1>
+  <p>Recherche : <strong>{{.Query}}</strong> • Type : <strong>{{.Type}}</strong></p>
+</div>
+
+{{if .Artists}}
+  <div class="grid">
+    {{range .Artists}}
+      <div class="item">
+        <img class="avatar" src="{{.PictureMedium}}" alt="artist" />
+        <div class="meta">
+          <p class="name">{{.Name}}</p>
+          <p class="sub">👥 {{.NbFan}} fans<br/>🎶 {{.NbAlbum}} albums</p>
+          <span class="badge">ID: {{.ID}}</span>
+        </div>
+      </div>
+    {{end}}
+  </div>
+{{else if .Tracks}}
+  <div class="grid">
+    {{range .Tracks}}
+      <div class="item">
+        <img class="avatar" src="{{.Album.CoverMedium}}" alt="cover" />
+        <div class="meta">
+          <p class="name">{{.Title}}</p>
+          <p class="sub">🎤 {{.Artist.Name}}<br/>⏱️ {{.Duration}}s</p>
+
+          {{if .Preview}}
+            <audio controls preload="none" style="margin-top:10px; width:220px;">
+              <source src="{{.Preview}}" type="audio/mpeg">
+              Ton navigateur ne supporte pas l'audio.
+            </audio>
+          {{else}}
+            <span class="badge" style="opacity:.7">Pas de preview</span>
+          {{end}}
+        </div>
+      </div>
+    {{end}}
+  </div>
+{{else if .Albums}}
+  <div class="grid">
+    {{range .Albums}}
+      <div class="item">
+        <img class="avatar" src="{{.CoverMedium}}" alt="cover" />
+        <div class="meta">
+          <p class="name">{{.Title}}</p>
+          <p class="sub">📀 Album<br/>📅 {{.ReleaseDate}}</p>
+          <span class="badge">ID: {{.ID}}</span>
+        </div>
+      </div>
+    {{end}}
+  </div>
+{{else}}
+  <div class="empty">Aucun résultat.</div>
+{{end}}
+{{end}}

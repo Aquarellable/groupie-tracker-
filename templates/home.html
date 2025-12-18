@@ -1,0 +1,16 @@
+{{define "home"}}
+<div class="hero">
+  <h1>Trouve un artiste sur Deezer</h1>
+  <p>Recherche rapide, résultats propres, et API JSON dispo si besoin.</p>
+
+  <form class="search" action="/search" method="get">
+    <input name="q" placeholder="Ex: gims, eminem, daft punk..." required />
+    <select name="type">
+      <option value="artist" selected>Artistes</option>
+      <option value="track">Titres</option>
+      <option value="album">Albums</option>
+    </select>
+    <button type="submit">Rechercher</button>
+  </form>
+</div>
+{{end}}
