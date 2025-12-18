@@ -5,5 +5,5 @@ import (
 )
 
 func HandleHome(w http.ResponseWriter, r *http.Request) {
-	Fprintln(w, "Bienvenue sur mon API GroupieTrackers !")
+	println(w, "Bienvenue sur mon API GroupieTrackers !")
 }
