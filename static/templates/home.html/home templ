@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil</title>
+  <!-- <link rel="stylesheet" href="/static/style.css"> -->
+</head>
+<body>
+
+  <h1>Bienvenue 🌸</h1>
+
+  <p>
+    Cette application affiche des informations venant d’une API.
+  </p>
+
+  <a href="/data">Voir les données</a>
+
+</body>
+</html>

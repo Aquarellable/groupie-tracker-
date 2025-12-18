@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Erreur</title>
+  <!-- <link rel="stylesheet" href="/static/style.css"> -->
+</head>
+<body>
+
+  <h1>Oups 😢</h1>
+
+  <p>{{ .Message }}</p>
+
+  <a href="/">Retour à l’accueil</a>
+
+</body>
+</html>

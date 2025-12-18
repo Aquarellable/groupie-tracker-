@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"groupie-tracker/handlers"
+	"log"
 	"net/http"
 	"time"
 )
@@ -53,13 +54,26 @@ func getArtists(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", handlers.HandleHome)
 	http.HandleFunc("/artists", getArtists)
+	http.HandleFunc("/start", startHandler)
+	http.HandleFunc("/errors/", errorHandler)
+
+// Gérer les fichiers CSS / images
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	fmt.Println("API ready !")
 	fmt.Println("Listening at : http://localhost:8080")
 
-	http.ListenAndServe(":8080", nil)
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 type Artiste struct {
 	Nom string `json:"nom"`
+}
+
+func startHandler(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Démarrage réussi !"))
+}
+
+func errorHandler(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("Une erreur s'est produite"))
 }

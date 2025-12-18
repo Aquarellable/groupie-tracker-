@@ -2,8 +2,10 @@ package handlers
 
 import (
 	"net/http"
+	"text/template"
 )
 
 func HandleHome(w http.ResponseWriter, r *http.Request) {
-	println(w, "Bienvenue sur mon API GroupieTrackers !")
+	tmpl := template.Must(template.ParseFiles("static/templates/index.html"))
+	tmpl.Execute(w, nil)
 }

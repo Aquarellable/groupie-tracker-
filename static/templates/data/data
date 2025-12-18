@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Données</title>
+  <!-- <link rel="stylesheet" href="/static/style.css"> -->
+</head>
+<body>
+
+  <h1>Données reçues 📦</h1>
+
+  {{ range .Items }}
+    <div class="card">
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Description }}</p>
+    </div>
+  {{ end }}
+
+  <a href="/">Retour à l’accueil</a>
+
+</body>
+</html>
